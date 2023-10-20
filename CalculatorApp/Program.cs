@@ -18,7 +18,7 @@ class calculatorApp
         Console.Write("Enter first number: ");
         num1 = double.Parse(Console.ReadLine());
         string operatn = "";
-        do
+        while (whileTrigger == 0)
         {
 
             Console.Write("Enter Operation: ");
@@ -75,11 +75,45 @@ class calculatorApp
                     Console.Write("Enter Operation: ");
                     operatn = (Console.ReadLine());
 
-                    Console.Write("Enter second Number: ");
-                    num2 = double.Parse(Console.ReadLine());
-                    result = num1 + num2;
-                    Console.WriteLine($"{num1} {operatn} {num2} = {result}");
-                    num1 = result;
+                    if (operatn == "+")
+                    {
+                        Console.Write("Enter second Number: ");
+                        num2 = double.Parse(Console.ReadLine());
+                        result = num1 + num2;
+                        Console.WriteLine($"{num1} {operatn} {num2} = {result}");
+                        num1 = result;
+                    }
+                    else if (operatn == "-")
+                    {
+                        Console.Write("Enter second Number: ");
+                        num2 = double.Parse(Console.ReadLine());
+                        result = num1 - num2;
+                        Console.WriteLine($"{num1} {operatn} {num2} = {result}");
+                        num1 = result;
+                    }
+                    else if (operatn == "*")
+                    {
+                        Console.Write("Enter second Number: ");
+                        num2 = double.Parse(Console.ReadLine());
+                        result = num1 * num2;
+                        Console.WriteLine($"{num1} {operatn} {num2} = {result}");
+                        num1 = result;
+                    }
+                    else if (operatn == "/")
+                    {
+                        Console.Write("Enter second Number: ");
+                        num2 = double.Parse(Console.ReadLine());
+                        if (num2 != 0)
+                        {
+                            result = num1 / num2;
+                            Console.WriteLine($"{num1} {operatn} {num2} = {result}");
+                            num1 = result;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid");
+                        }
+                    }
                     break;
 
                 default:
@@ -87,7 +121,6 @@ class calculatorApp
                     break;
             }
         }
-        while (whileTrigger == 0);
 
     }
 }
